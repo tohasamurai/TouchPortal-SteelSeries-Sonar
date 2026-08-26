@@ -1,5 +1,11 @@
 # SteelSeries Sonar for Touch Portal
 
+**EN:** Touch Portal plugin for SteelSeries GG Sonar: control Streamer Mode,
+audio routing, Master microphone input, volume, and mute.
+
+**RU:** Плагин Touch Portal для SteelSeries GG Sonar: управление Streamer Mode,
+маршрутизацией звука, входом микрофона Master, громкостью и mute.
+
 Плагин для управления **SteelSeries GG Sonar** из [Touch Portal](https://www.touch-portal.com/).
 Он даёт быстрый контроль над Streamer Mode: личным миксом, миксом для зрителей,
 Master-входом микрофона, громкостью и mute каждого канала.
