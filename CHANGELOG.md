@@ -1,5 +1,12 @@
 # Changelog
 
+## 1.0.7 — 2026-08-28
+
+- Replaced the old speaker artwork with the official Sonar logo.
+- Fixed the oversized empty category block by changing the category icon canvas
+  from 256×256 to the native 40×40 size expected by Touch Portal.
+- Split the project overview into standalone English and Russian READMEs.
+
 ## 1.0.6 — 2026-08-26
 
 - Reduced the category icon's opaque area to 48×48 px for a compact Touch

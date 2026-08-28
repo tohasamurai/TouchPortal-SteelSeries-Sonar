@@ -8,8 +8,8 @@ label in one place guarantees entry.tp and the plugin stay in sync.
 
 PLUGIN_ID = "steelseries_sonar_tp"
 PLUGIN_NAME = "SteelSeries Sonar"
-PLUGIN_VERSION = 106  # integer, bumped on each release
-PLUGIN_VERSION_STR = "1.0.6"
+PLUGIN_VERSION = 107  # integer, bumped on each release
+PLUGIN_VERSION_STR = "1.0.7"
 
 # TouchPortal API/SDK version. TP 3.1 == 6.
 TP_API = 6

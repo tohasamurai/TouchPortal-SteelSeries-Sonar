@@ -1,92 +1,63 @@
 # SteelSeries Sonar for Touch Portal
 
-**EN:** Touch Portal plugin for SteelSeries GG Sonar: control Streamer Mode,
-audio routing, Master microphone input, volume, and mute.
+⭐ **If this plugin helps you, please star the repository — it helps other Touch Portal users find it.**
 
-**RU:** Плагин Touch Portal для SteelSeries GG Sonar: управление Streamer Mode,
-маршрутизацией звука, входом микрофона Master, громкостью и mute.
+**English** | [Русский](README.ru.md)
 
-Плагин для управления **SteelSeries GG Sonar** из [Touch Portal](https://www.touch-portal.com/).
-Он даёт быстрый контроль над Streamer Mode: личным миксом, миксом для зрителей,
-Master-входом микрофона, громкостью и mute каждого канала.
+A Windows plugin for controlling **SteelSeries GG Sonar** from [Touch Portal](https://www.touch-portal.com/). It provides quick access to Streamer Mode, Personal and Audience mixes, the Master microphone input, channel volume, and mute controls.
 
-> Проверено на Windows 11, SteelSeries GG 116.0.0 и Touch Portal 3.1.
-> Sonar — Windows-only; macOS и Linux не поддерживаются.
+> Tested on Windows 11, SteelSeries GG 116.0.0, and Touch Portal 3.1. Sonar is Windows-only.
 
-## Возможности
+## Features
 
-- Выбор устройств для **Monitoring (Personal Mix)** и **Streaming (Audience Mix)**.
-- Выбор физического микрофона в **МАСТЕР → Вход микрофона** Sonar.
-- Быстрое циклическое переключение микрофонов одной кнопкой.
-- Classic / Stream mode, редиректы Classic и Streamer.
-- Громкость, изменение громкости и mute по каналам: Master, Game, Chat, Mic,
-  Media и Aux.
-- Отдельный one-tap mute микрофона.
-- Слайдер громкости для Touch Portal.
-- States для режима, выбранных устройств, громкости и mute.
-- Автопереподключение после перезапуска Sonar или Touch Portal.
+- Select devices for **Monitoring (Personal Mix)** and **Streaming (Audience Mix)**.
+- Select the physical microphone shown under **MASTER → Microphone Input** in Sonar.
+- Cycle through available microphones with one button.
+- Switch Classic / Stream mode and control routing devices.
+- Control volume and mute for Master, Game, Chat, Mic, Media, and Aux.
+- Touch Portal sliders, states, and automatic reconnection.
 
-## Установка
+## Installation
 
-1. Скачай последний `SteelSeriesSonar-vX.Y.Z.tpp` из
-   [Releases](../../releases).
-2. В Touch Portal: **Settings → Import plug-in…**.
-3. Выбери `.tpp`, затем полностью перезапусти Touch Portal.
-4. Действия появятся в категории **SteelSeries Sonar**.
+1. Download the latest `SteelSeriesSonar-vX.Y.Z.tpp` from [Releases](../../releases).
+2. In Touch Portal, open **Settings → Import plug-in…**.
+3. Select the `.tpp`, then fully restart Touch Portal.
+4. Find the actions under **SteelSeries Sonar**.
 
-Плагину не нужны права администратора и доступ в интернет. Он общается только
-с локальным Sonar API на `127.0.0.1`.
+No administrator privileges or internet access are required. The plugin communicates only with the local Sonar API at `127.0.0.1`.
 
-## Быстрый старт: Master microphone
+## Master microphone
 
-Чтобы менять микрофон, который указан слева в Sonar в поле
-**МАСТЕР → Вход микрофона**:
+Add **Sonar: Master - Set Microphone Input** and choose a physical microphone. Use **Sonar: Master - Next Microphone Input** to cycle devices with one button. Virtual Sonar devices are hidden to prevent routing loops.
 
-1. Добавь действие **Sonar: Master - Set Microphone Input**.
-2. Выбери физический микрофон, например `Microphone (AT2020USB+)` или
-   `Headset Microphone (Arctis 7 Chat)`.
-3. Для одной кнопки без выпадающего списка используй
-   **Sonar: Master - Next Microphone Input**.
+## Documentation
 
-Виртуальные Sonar devices намеренно не показываются в этом списке: они не
-являются реальными входами Master и могут создать петлю маршрутизации.
+- [Full usage guide (Russian)](docs/USAGE.md)
+- [Troubleshooting (Russian)](docs/TROUBLESHOOTING.md)
+- [Changelog](CHANGELOG.md)
 
-## Документация
+## Button icons
 
-- [Полное использование](docs/USAGE.md)
-- [Устранение неполадок](docs/TROUBLESHOOTING.md)
-- [История изменений](CHANGELOG.md)
-
-## Иконки кнопок
-
-Готовые прозрачные PNG для Touch Portal лежат в [`assets/`](assets/):
-
-| Гарнитура | Студийный микрофон |
+| Headset microphone | Studio microphone |
 | --- | --- |
-| ![Гарнитура](assets/headset_microphone.png) | ![Студийный микрофон](assets/studio_microphone.png) |
+| ![Headset microphone](assets/headset_microphone.png) | ![Studio microphone](assets/studio_microphone.png) |
 
-Иконка категории плагина в списке действий и картинка самой кнопки в Touch
-Portal — разные элементы. Картинка кнопки назначается вручную в правой панели
-редактора кнопки, на вкладке изображения.
+The category icon and button images are separate. Assign button images manually from the image tab in Touch Portal's button editor.
 
-## Разработка и сборка
+## Build
 
-Требования: Python 3.12, PyInstaller и Pillow.
+Requirements: Python 3.12, PyInstaller, and Pillow.
 
 ```powershell
 python -m pip install pyinstaller pillow
-.\build.ps1 -Version 1.0.6
+.\build.ps1 -Version 1.0.7
 ```
 
-Готовый `.tpp` появится в корне проекта. Не коммить `build/`, `dist_build/`
-и `.tpp`: опубликованный пакет прикладывается к GitHub Release.
+## Known limitations
 
-## Ограничения
+- Some Classic volume endpoints in GG 116 may return HTTP 500; Streamer mixes work reliably.
+- `chatMix` is not included because its old local endpoint is absent in GG 116.
 
-- Некоторые Classic volume-эндпоинты в GG 116 могут вернуть HTTP 500;
-  Streamer-миксы работают стабильно.
-- `chatMix` не включён: его старый локальный endpoint отсутствует в GG 116.
-
-## Лицензия
+## License
 
 [MIT](LICENSE)
