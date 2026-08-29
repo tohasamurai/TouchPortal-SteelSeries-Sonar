@@ -8,14 +8,57 @@ A Windows plugin for controlling **SteelSeries GG Sonar** from [Touch Portal](ht
 
 > Tested on Windows 11, SteelSeries GG 116.0.0, and Touch Portal 3.1. Sonar is Windows-only.
 
-## Features
+## All functions
 
-- Select devices for **Monitoring (Personal Mix)** and **Streaming (Audience Mix)**.
-- Select the physical microphone shown under **MASTER → Microphone Input** in Sonar.
-- Cycle through available microphones with one button.
-- Switch Classic / Stream mode and control routing devices.
-- Control volume and mute for Master, Game, Chat, Mic, Media, and Aux.
-- Touch Portal sliders, states, and automatic reconnection.
+### Device routing and microphones
+
+| Touch Portal action | What it does |
+| --- | --- |
+| **Set Personal Mix (Monitoring) source** | Selects the physical output device used for your personal monitoring mix in Streamer Mode. |
+| **Set Streaming (audience) source** | Selects the physical output device used for the audience mix in Streamer Mode. |
+| **Master - Set Microphone Input** | Selects the physical microphone shown under **MASTER → Microphone Input** in Sonar. The same input is written to the Stream and Classic routes. |
+| **Master - Next Microphone Input** | Switches Master to the next available physical microphone with one button. |
+| **Refresh audio devices** | Reloads output and microphone lists after a USB device is connected, removed, or renamed. |
+| **Set Stream redirection device** | Selects a device for **Streaming (audience)**, **Monitoring (personal mix)**, or **Microphone input**. |
+| **Set Classic redirection device** | Selects a device for the Classic **Game**, **Chat**, **Microphone input**, **Media**, or **Aux** route. |
+
+Virtual Sonar microphones are intentionally hidden from the Master microphone list to prevent routing loops. Devices with identical Windows names are displayed with a distinguishing suffix.
+
+### Modes and monitoring
+
+| Touch Portal action | What it does |
+| --- | --- |
+| **Set Mode** | Selects **Classic** or **Stream** mode directly. |
+| **Toggle Classic/Stream mode** | Switches between Classic and Stream modes with one button. |
+| **Stream Monitoring (hear audience mix)** | Turns audience-mix monitoring **On**, **Off**, or **Toggle**. |
+
+### Volume and mute
+
+| Touch Portal action | What it does |
+| --- | --- |
+| **Set Volume** | Sets an exact volume from 0 to 100%. |
+| **Adjust Volume (+/-)** | Raises or lowers volume by a chosen amount from -100 to +100%. |
+| **Mute / Unmute** | Applies **Mute**, **Unmute**, or **Toggle** to the selected mix and channel. |
+| **Microphone Mute** | Dedicated one-tap microphone mute with **On**, **Off**, or **Toggle**. |
+
+Volume and mute controls support these mixes:
+
+- **Classic**;
+- **Stream – Streaming (audience)**;
+- **Stream – Monitoring (personal mix)**.
+
+Each mix supports **Master**, **Game**, **Chat**, **Mic**, **Media**, and **Aux** channels.
+
+### Slider, states, and settings
+
+- **Volume (slider)** — a Touch Portal fader for any supported mix and channel.
+- Connection state: whether the plugin is connected to Sonar.
+- Current Sonar mode: Classic or Stream.
+- Selected Streaming, Monitoring, and Master microphone devices.
+- Dedicated microphone-muted state.
+- Volume percentage and mute state for every mix/channel combination.
+- Customizable text labels for muted and unmuted states.
+- Automatic Sonar API discovery and reconnection after Sonar or Touch Portal restarts.
 
 ## Installation
 
